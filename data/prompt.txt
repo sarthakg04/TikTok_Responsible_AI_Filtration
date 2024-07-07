@@ -1,0 +1,130 @@
+You are tasked with analyzing the content of a video transcript to categorize its content based on predefined categories and sub-categories. Each category and sub-category has a description that explains what type of content it covers. Your goal is to determine whether the transcript contains content related to each sub-category and populate the corresponding boolean values in a JSON structure.
+
+### Categories and Descriptions:
+
+1. *Political Content:* Content related to politics.
+   - leftWing: Left-wing political views.
+   - rightWing: Right-wing political views.
+   - centrism: Centrist political views.
+   - extremism: Extreme political views.
+   - electionCoverage: News about elections.
+   - politicalDebates: Political discussions and debates.
+
+2. *Sexuality and Gender Issues:* Content on sexuality and gender topics.
+   - lgbtq+: LGBTQ+ related content.
+   - genderIdentity: Discussions on gender identity.
+   - sexualHealth: Information on sexual health.
+   - feminism: Content related to feminism.
+   - sexEducation: Sex education topics.
+   - relationshipAdvice: Guidance on relationships.
+
+3. *Offensive Content:* Potentially offensive material.
+   - profanity: Use of profane language.
+   - graphicContent: Explicit visual content.
+   - disturbingImages: Shocking or unsettling images.
+   - offensiveJokes: Humor that may offend.
+   - hateSpeech: Speech promoting hate.
+   - insensitiveComments: Comments lacking sensitivity.
+
+4. *Religious Content:* Content about religion.
+   - christianity: Christian religious topics.
+   - islam: Islamic religious topics.
+   - hinduism: Hindu religious topics.
+   - buddhism: Buddhist religious topics.
+   - atheism: Atheist viewpoints.
+   - interfaithDialogues: Discussions between different faiths.
+
+5. *Racial Content:* Content on race and ethnicity.
+   - racialEquality: Equality among races.
+   - racialDiscrimination: Racial discrimination issues.
+   - culturalAppropriation: Use of another culture's elements.
+   - racialHistory: Historical racial events.
+   - racistRemarks: Offensive racial comments.
+
+6. *Hate Speech:* Content promoting hate.
+   - racism: Hate based on race.
+   - sexism: Hate based on gender.
+   - homophobia: Hate towards LGBTQ+.
+   - transphobia: Hate towards transgender people.
+   - xenophobia: Hate towards foreigners.
+   - otherHateSpeech: Other forms of hate speech.
+
+### Instructions:
+
+1. Analyze the provided transcript or context of the video.
+2. For each category and sub-category, determine if the transcript contains related content.
+3. Populate the JSON structure with boolean values (true/false) indicating the presence of each sub-category in the transcript.
+4. Return only json. No bullshit
+
+Here is the empty JSON structure you will fill based on your analysis:
+
+```json
+{
+    "contentPreferences": {
+        "politicalContent": {
+            "enabled": true,
+            "subCategories": {
+                "leftWing": false,
+                "rightWing": false,
+                "centrism": false,
+                "extremism": false,
+                "electionCoverage": false,
+                "politicalDebates": false
+            }
+        },
+        "sexualityAndGenderIssues": {
+            "enabled": true,
+            "subCategories": {
+                "lgbtq+": false,
+                "genderIdentity": false,
+                "sexualHealth": false,
+                "feminism": false,
+                "sexEducation": false,
+                "relationshipAdvice": false
+            }
+        },
+        "offensiveContent": {
+            "enabled": true,
+            "subCategories": {
+                "profanity": false,
+                "graphicContent": false,
+                "disturbingImages": false,
+                "offensiveJokes": false,
+                "hateSpeech": false,
+                "insensitiveComments": false
+            }
+        },
+        "religiousContent": {
+            "enabled": true,
+            "subCategories": {
+                "christianity": false,
+                "islam": false,
+                "hinduism": false,
+                "buddhism": false,
+                "atheism": false,
+                "interfaithDialogues": false
+            }
+        },
+        "racialContent": {
+            "enabled": true,
+            "subCategories": {
+                "racialEquality": false,
+                "racialDiscrimination": false,
+                "culturalAppropriation": false,
+                "racialHistory": false,
+                "racistRemarks": false
+            }
+        },
+        "hateSpeech": {
+            "enabled": true,
+            "subCategories": {
+                "racism": false,
+                "sexism": false,
+                "homophobia": false,
+                "transphobia": false,
+                "xenophobia": false,
+                "otherHateSpeech": false
+            }
+        }
+    }
+}

@@ -1,0 +1,223 @@
+{
+    "contentPreferences": {
+        "politicalContent": {
+            "enabled": true,
+            "subCategories": {
+                "leftWing": false,
+                "rightWing": false,
+                "centrism": true,
+                "extremism": false,
+                "electionCoverage": true,
+                "politicalDebates": false
+            }
+        },
+        "sexualityAndGenderIssues": {
+            "enabled": true,
+            "subCategories": {
+                "lgbtq+": false,
+                "genderIdentity": false,
+                "sexualHealth": false,
+                "feminism": false,
+                "sexEducation": false,
+                "relationshipAdvice": true
+            }
+        },
+        "offensiveContent": {
+            "enabled": true,
+            "subCategories": {
+                "profanity": false,
+                "graphicContent": false,
+                "disturbingImages": false,
+                "offensiveJokes": false,
+                "hateSpeech": false,
+                "insensitiveComments": false
+            }
+        },
+        "religiousContent": {
+            "enabled": true,
+            "subCategories": {
+                "christianity": true,
+                "islam": true,
+                "hinduism": true,
+                "buddhism": true,
+                "atheism": false,
+                "interfaithDialogues": true
+            }
+        },
+        "racialContent": {
+            "enabled": true,
+            "subCategories": {
+                "racialEquality": true,
+                "racialDiscrimination": false,
+                "culturalAppropriation": false,
+                "racialHistory": true,
+                "racistRemarks": false
+            }
+        },
+        "hateSpeech": {
+            "enabled": true,
+            "subCategories": {
+                "racism": false,
+                "sexism": false,
+                "homophobia": false,
+                "transphobia": false,
+                "xenophobia": false,
+                "otherHateSpeech": false
+            }
+        },
+        "fitnessAndHealthChoices": {
+            "enabled": true,
+            "subCategories": {
+                "dieting": true,
+                "exerciseRoutines": true,
+                "weightLoss": false,
+                "bodyBuilding": false,
+                "mentalHealth": false,
+                "alternativeMedicine": false
+            }
+        },
+        "violenceAndGore": {
+            "enabled": true,
+            "subCategories": {
+                "physicalViolence": false,
+                "warFootage": false,
+                "accidents": false,
+                "horrorContent": false,
+                "animalAbuse": false,
+                "goryScenes": false
+            }
+        },
+        "substanceUse": {
+            "enabled": true,
+            "subCategories": {
+                "drugUse": false,
+                "alcoholConsumption": false,
+                "smoking": false,
+                "rehabilitation": true,
+                "addictionStories": true,
+                "substanceAbuseAwareness": true
+            }
+        },
+        "financialAdviceAndContent": {
+            "enabled": true,
+            "subCategories": {
+                "investmentTips": true,
+                "stockMarket": true,
+                "cryptocurrency": false,
+                "personalFinance": true,
+                "financialNews": true,
+                "budgetingTips": true
+            }
+        },
+        "matureOrAdultContent": {
+            "enabled": true,
+            "subCategories": {
+                "pornography": false,
+                "eroticStories": false,
+                "adultHumor": false,
+                "matureThemes": true,
+                "sexualWellness": true,
+                "romanticScenes": true
+            }
+        },
+        "gamblingContent": {
+            "enabled": true,
+            "subCategories": {
+                "onlineGambling": false,
+                "casinoGames": false,
+                "bettingTips": false,
+                "gamblingAddiction": true,
+                "lotteries": false,
+                "pokerTournaments": false
+            }
+        },
+        "mentalHealthAndPsychologicalContent": {
+            "enabled": true,
+            "subCategories": {
+                "depression": true,
+                "anxiety": true,
+                "therapy": true,
+                "psychologicalDisorders": false,
+                "mentalHealthAwareness": true,
+                "selfHelpTips": true
+            }
+        },
+        "selfHarmAndSuicide": {
+            "enabled": true,
+            "subCategories": {
+                "selfHarmStories": false,
+                "suicidePrevention": true,
+                "supportGroups": true,
+                "crisisHotlines": true,
+                "survivorStories": true,
+                "emotionalSupport": true
+            }
+        },
+        "paranormalAndSupernaturalContent": {
+            "enabled": true,
+            "subCategories": {
+                "ghostStories": false,
+                "paranormalInvestigations": false,
+                "supernaturalOccurrences": false,
+                "mythicalCreatures": true,
+                "urbanLegends": true,
+                "psychicAbilities": false
+            }
+        },
+        "extremeSportsAndActivities": {
+            "enabled": true,
+            "subCategories": {
+                "skydiving": false,
+                "bungeeJumping": false,
+                "mountainClimbing": true,
+                "extremeSurfing": true,
+                "parkour": false,
+                "baseJumping": false
+            }
+        },
+        "dietAndEatingDisorders": {
+            "enabled": true,
+            "subCategories": {
+                "dietingTips": true,
+                "healthyEating": true,
+                "eatingDisorderStories": false,
+                "nutritionAdvice": true,
+                "weightManagement": true,
+                "dietFads": false
+            }
+        },
+        "bodyImageAndAppearance": {
+            "enabled": true,
+            "subCategories": {
+                "bodyPositivity": true,
+                "cosmeticSurgery": false,
+                "beautyTips": true,
+                "fashionAdvice": true,
+                "selfEsteem": true,
+                "bodyShaming": false
+            }
+        },
+        "controversialTopics": {
+            "enabled": true,
+            "subCategories": {
+                "conspiracyTheories": false,
+                "controversialOpinions": false,
+                "politicalScandals": false,
+                "socialIssues": true,
+                "environmentalDebates": true,
+                "publicPolicy": true
+            }
+        },
+        "newsAndCurrentEvents": {
+            "enabled": true,
+            "subCategories": {
+                "breakingNews": true,
+                "localNews": true,
+                "internationalNews": true,
+                "businessNews": true,
+                "entertainmentNews": true,
+                "technologyNews": true
+            }
+        }
+    }
+}
