@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video to Text</title>
+    <style>
+        #drop-area {
+            border: 2px dashed #ccc;
+            border-radius: 20px;
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        #drop-area.highlight {
+            border-color: purple;
+        }
+        p {
+            margin-top: 0;
+        }
+        .my-form {
+            margin-bottom: 10px;
+        }
+        #fileElem {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="drop-area">
+        <form class="my-form">
+            <p>Upload a video file by dragging it into the box or selecting it using the button below.</p>
+            <input type="file" id="fileElem" accept="video/*" onchange="handleFiles(this.files)">
+            <label class="button" for="fileElem">Select a file</label>
+        </form>
+        <progress id="progress-bar" max=100 value=0></progress>
+        <div id="gallery"></div>
+        <button onclick="uploadFile()">Upload</button>
+    </div>
+
+    <script>
+        let dropArea = document.getElementById('drop-area');
+        let file;
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+            dropArea.classList.add('highlight');
+        }
+
+        function unhighlight(e) {
+            dropArea.classList.remove('highlight');
+        }
+
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            let dt = e.dataTransfer;
+            let files = dt.files;
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            file = files[0];
+            let gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+            let img = document.createElement('img');
+            img.src = URL.createObjectURL(file);
+            gallery.appendChild(img);
+        }
+
+        function uploadFile() {
+            let formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert("File uploaded and processed. Transcription saved.");
+            })
+            .catch(error => {
+                console.error(error);
+                alert("An error occurred while uploading the file.");
+            });
+        }
+    </script>
+</body>
+</html>

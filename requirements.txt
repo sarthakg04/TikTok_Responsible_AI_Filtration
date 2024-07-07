@@ -1,2 +1,8 @@
 anthropic
 python-dotenv
+video-to-mp3
+SpeechRecognition
+pydub
+requests
+openai
+flask
