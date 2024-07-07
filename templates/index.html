@@ -4,19 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video to Text</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         #drop-area {
             border: 2px dashed #ccc;
             border-radius: 20px;
-            width: 80%;
-            margin: 50px auto;
             padding: 20px;
+            margin-top: 20px;
         }
         #drop-area.highlight {
             border-color: purple;
-        }
-        p {
-            margin-top: 0;
         }
         .my-form {
             margin-bottom: 10px;
@@ -24,19 +22,32 @@
         #fileElem {
             display: none;
         }
+        #gallery img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
-    <div id="drop-area">
-        <form class="my-form">
-            <p>Upload a video file by dragging it into the box or selecting it using the button below.</p>
-            <input type="file" id="fileElem" accept="video/*" onchange="handleFiles(this.files)">
-            <label class="button" for="fileElem">Select a file</label>
-        </form>
-        <progress id="progress-bar" max=100 value=0></progress>
-        <div id="gallery"></div>
-        <button onclick="uploadFile()">Upload</button>
+    <div class="container">
+        <h1 class="text-center my-5">Video to Text Conversion</h1>
+        <div id="drop-area" class="text-center">
+            <form class="my-form">
+                <p>Upload a video file by dragging it into the box or selecting it using the button below.</p>
+                <input type="file" id="fileElem" accept="video/*" onchange="handleFiles(this.files)">
+                <label class="btn btn-primary" for="fileElem">Select a file</label>
+            </form>
+            <progress id="progress-bar" max=100 value=0 class="my-3"></progress>
+            <div id="gallery" class="my-3"></div>
+            <button class="btn btn-success" onclick="uploadFile()">Upload</button>
+        </div>
+        <div id="transcription-result" class="mt-5"></div>
     </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
         let dropArea = document.getElementById('drop-area');
@@ -95,11 +106,24 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                alert("File uploaded and processed. Transcription saved.");
+                alert("File uploaded and processed. Fetching transcription...");
+                fetchTranscription(data.filename);
             })
             .catch(error => {
                 console.error(error);
                 alert("An error occurred while uploading the file.");
+            });
+        }
+
+        function fetchTranscription(filename) {
+            fetch(`/transcription/${filename}`)
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('transcription-result').innerHTML = `<h2>Transcription Result:</h2><pre>${text}</pre>`;
+            })
+            .catch(error => {
+                console.error(error);
+                alert("An error occurred while fetching the transcription.");
             });
         }
     </script>

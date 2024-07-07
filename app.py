@@ -3,10 +3,11 @@ from flask import Flask, request, jsonify, send_file, render_template
 from openai import OpenAI
 from moviepy.editor import VideoFileClip
 from dotenv import load_dotenv
+
 load_dotenv()
 app = Flask(__name__)
 
-API_KEY = os.getenv('ANTHROPIC_API_KEY')# Replace with your Whisper API key
+API_KEY = os.getenv('OPEN_AI_API_KEY')  # Replace with your Whisper API key
 client = OpenAI(api_key=API_KEY)
 
 def video_to_mp3(video_file, audio_file):
@@ -15,11 +16,9 @@ def video_to_mp3(video_file, audio_file):
     video_clip.close()
     print(f"Conversion complete. The MP3 file is saved as {audio_file}")
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
-
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -47,8 +46,7 @@ def upload_file():
     with open(text_path, 'w') as text_file:
         text_file.write(transcription.text)
 
-    return jsonify({"message": "File processed", "text_path": text_path})
-
+    return jsonify({"message": "File processed", "text_path": text_path, "filename": os.path.splitext(file.filename)[0]})
 
 @app.route('/transcription/<filename>', methods=['GET'])
 def get_transcription(filename):
@@ -57,7 +55,6 @@ def get_transcription(filename):
         return send_file(text_path)
     else:
         return "File not found", 404
-
 
 if __name__ == '__main__':
     os.makedirs('uploads', exist_ok=True)
