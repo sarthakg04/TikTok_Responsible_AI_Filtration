@@ -4,25 +4,23 @@ import anthropic
 import json
 # Load environment variables from .env file
 
-def remove_first_and_last_line_from_text(text):
-    lines = text.splitlines()
-    if len(lines) > 2:
-        lines = lines[1:-1]  # Remove the first and last line
-    return '\n'.join(lines)
-def parse_message_to_json(message):
-    
-    text = remove_first_and_last_line_from_text(message) 
-    try:
-        json_data = json.loads(text)
-        return json_data
-    except json.JSONDecodeError as e:
-        print(f"Error decoding JSON: {e}")
+def extract_json_from_text(text):
+    # Function to find and extract JSON-like structures from text
+    start_index = text.find('{')
+    end_index = text.rfind('}') + 1
+
+    if start_index != -1 and end_index != -1:
+        json_str = text[start_index:end_index]
+        try:
+            json_data = json.loads(json_str)
+            return json_data
+        except json.JSONDecodeError as e:
+            print(f"Error decoding JSON: {e}")
+            return None
+    else:
+        print("No JSON-like structure found in the text.")
         return None
 
-def read_json_configuration(f_config):
-    with open(f_config) as json_data:
-        d = json.load(json_data)
-        print(d)
 
 def read_text(text_file):
     f = open(text_file,'r')
@@ -53,5 +51,5 @@ def generate_json(obj):
             }
         ]
     ).content[0].text
-    json_data = parse_message_to_json(message)
+    json_data = extract_json_from_text(message)
     return json_data
