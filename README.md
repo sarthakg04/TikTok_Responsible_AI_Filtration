@@ -95,6 +95,89 @@ python app.py
     └── prompt.txt          # Prompt file for generating JSON
 
 ```
+## Demo
+
+**Warning:** These images are intended for sample purposes only. 
+
+Here are some demo images showing the application in action:
+
+<img src="images/image2.png" alt="Demo 1" width="200" />
+
+<img src="images/image.png" alt="Demo 2" width="500" />
+
+## OUTPUT JSON FOR MASKING
+```
+{
+  "contentPreferences": {
+    "hateSpeech": {
+      "enabled": true,
+      "subCategories": {
+        "homophobia": false,
+        "otherHateSpeech": true,
+        "racism": false,
+        "sexism": false,
+        "transphobia": false,
+        "xenophobia": true
+      }
+    },
+    "offensiveContent": {
+      "enabled": true,
+      "subCategories": {
+        "disturbingImages": false,
+        "graphicContent": false,
+        "hateSpeech": true,
+        "insensitiveComments": true,
+        "offensiveJokes": false,
+        "profanity": false
+      }
+    },
+    "politicalContent": {
+      "enabled": true,
+      "subCategories": {
+        "centrism": false,
+        "electionCoverage": false,
+        "extremism": true,
+        "leftWing": false,
+        "politicalDebates": false,
+        "rightWing": true
+      }
+    },
+    "racialContent": {
+      "enabled": true,
+      "subCategories": {
+        "culturalAppropriation": false,
+        "racialDiscrimination": true,
+        "racialEquality": false,
+        "racialHistory": true,
+        "racistRemarks": false
+      }
+    },
+    "religiousContent": {
+      "enabled": true,
+      "subCategories": {
+        "atheism": false,
+        "buddhism": false,
+        "christianity": false,
+        "hinduism": true,
+        "interfaithDialogues": false,
+        "islam": true
+      }
+    },
+    "sexualityAndGenderIssues": {
+      "enabled": true,
+      "subCategories": {
+        "feminism": false,
+        "genderIdentity": false,
+        "lgbtq+": false,
+        "relationshipAdvice": false,
+        "sexEducation": false,
+        "sexualHealth": false
+      }
+    }
+  }
+}
+
+```
 
 
 ## Acknowledgements
