@@ -103,7 +103,7 @@ Here are some demo images showing the application in action:
 
 <img src="images/image2.png" alt="Demo 1" width="200" />
 
-<img src="images/image.png" alt="Demo 2" width="500" />
+<img src="images/image.png" alt="Demo 2" width="700" />
 
 ## OUTPUT JSON FOR MASKING
 ```
