@@ -12,6 +12,7 @@ This application provides an API service to download a video from a URL, convert
 - Generate JSON transcription using Anthropic's Claude model.
 - Return transcription as a JSON response.
 - Download transcription as a text file.
+- Backend Support from: https://github.com/harjyotbagga/TikTokMask 
 
 ## Installation
 
