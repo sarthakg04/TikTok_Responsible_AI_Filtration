@@ -31,9 +31,6 @@ def video_to_mp3(video_file, audio_file):
     video_clip.close()
     print(f"Conversion complete. The MP3 file is saved as {audio_file}")
 
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file_new():
