@@ -3,12 +3,14 @@ from flask import Flask, request, jsonify, send_file, render_template
 from openai import OpenAI
 from moviepy.editor import VideoFileClip
 from dotenv import load_dotenv
+import compute_engine
+import requests
+
 
 load_dotenv()
 app = Flask(__name__)
-
-API_KEY = os.getenv('OPEN_AI_API_KEY')  # Replace with your Whisper API key
-client = OpenAI(api_key=API_KEY)
+API_KEY_OPENAI=os.getenv('API_KEY')
+client = OpenAI(api_key=API_KEY_OPENAI)
 
 def video_to_mp3(video_file, audio_file):
     video_clip = VideoFileClip(video_file)
@@ -45,8 +47,9 @@ def upload_file():
 
     with open(text_path, 'w') as text_file:
         text_file.write(transcription.text)
+        
+    return jsonify({"message": "File processed", "text_path": text_path})
 
-    return jsonify({"message": "File processed", "text_path": text_path, "filename": os.path.splitext(file.filename)[0]})
 
 @app.route('/transcription/<filename>', methods=['GET'])
 def get_transcription(filename):
@@ -56,6 +59,16 @@ def get_transcription(filename):
     else:
         return "File not found", 404
 
+
+@app.route('/getjson/<filename>', methods=['GET'])
+def get_json(filename):
+    text_path = os.path.join('uploads', filename + '.txt')
+    with open(text_path, 'r') as file:
+        text_content = file.read()
+        response=compute_engine.generate_json(text_content)
+    return response
+
+    
 if __name__ == '__main__':
     os.makedirs('uploads', exist_ok=True)
     app.run(debug=True)
