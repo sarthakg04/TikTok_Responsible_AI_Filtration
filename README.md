@@ -4,6 +4,8 @@
 
 This application provides an API service to download a video from a URL, convert it to MP3, transcribe the audio using OpenAI's Whisper model, and return the transcription in JSON format using Anthropic's Claude model. Additionally, the application allows users to download the transcription as a text file.
 
+Link to Devpost: https://devpost.com/software/safestream-responsibleai-for-personalized-content-filtering
+
 ## Features
 
 - Download video from a given URL.
